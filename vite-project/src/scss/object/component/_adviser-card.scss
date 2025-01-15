@@ -1,0 +1,45 @@
+@use "../../Foundation/index" as *;
+
+.c-adviser-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  gap: 0;
+}
+
+.c-adviser-card__image {
+  width: 100%;
+}
+
+.c-adviser-card__image img {
+  aspect-ratio: 335 / 260;
+  object-fit: cover;
+  object-position: center;
+}
+
+.c-adviser-card__content {
+}
+
+.c-adviser-card__title {
+  font-size: rem(18);
+  letter-spacing: 0.05em;
+  font-weight: $bold;
+  color: $color-main;
+  margin-top: rem(10);
+  @include mq() {
+    font-size: rem(26);
+    margin-top: rem(18);
+    letter-spacing: rem(3);
+  }
+}
+
+.c-adviser-card__description {
+  margin-top: rem(5);
+  font-size: rem(14);
+  line-height: 180%;
+  font-weight: $medium;
+  @include mq() {
+    margin-top: rem(15);
+    font-size: rem(18);
+  }
+}

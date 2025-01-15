@@ -1,0 +1,39 @@
+@use "sass:math";
+@use "sass:meta";
+
+@function strip-unit($number) {
+  @if meta.type-of($number) == "number" and not math.is-unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function vw($window_width, $size) {
+  @return math.div($size, $window_width) * 100vw;
+}
+
+// remへの計算式
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}
+
+$maxViewport: 1800;
+$minViewport: 375;
+
+@function rclamp($min, $max, $minViewport, $maxViewport) {
+  $vwScale: calc(
+    ($max - $min) / ($maxViewport - $minViewport)
+  ); // vw単位でのスケールを計算
+  $baseOffset: $min - $minViewport * $vwScale; // 基準となる最小値からのオフセットを計算
+
+  $minRem: calc($min / 16); // 最小値をremに変換
+  $maxRem: calc($max / 16); // 最大値をremに変換
+  $baseOffsetRem: calc($baseOffset / 16); // オフセットをremに変換
+  $vwScaleRem: $vwScale * 100; // vwスケールを調整
+
+  @return clamp(
+    #{$minRem}rem,
+    #{$baseOffsetRem}rem + #{$vwScaleRem}vw,
+    #{$maxRem}rem
+  );
+}

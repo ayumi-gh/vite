@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<% const basePath='../../' ; %>
+
+    <head>
+        <% let localhead={ title: '転職支援サービス登録フォーム（追加情報入力）｜IT/Webエンジニア専門の転職エージェントBLOOM TECH Career' ,
+            desc: '追加情報の入力はこちら。BLOOM TECH Careerの転職相談サービスへの登録フォームです。まずはお気軽にご相談ください。' , noindex: true }; %>
+            <%- include('../../include/_head', { head: localhead, basePath: basePath }) %>
+    </head>
+
+
+    <body class="p-add">
+        <%- include('../../include/_gtm') %>
+            <%- include('../../include/_header', {basePath}) %>
+                <main class="p-add-contents c-bg-blue">
+                    <div class="p-add-form">
+                        <div class="l-inner">
+                            <form class="p-add-form__body" action="<%= basePath %>entry/complete/" method=""
+                                onsubmit="subForm()" novalidate>
+                                <div class="p-add-form__section p-add-form__section--01">
+                                    <p class="p-add-form__title">
+                                        これまでの経験した職種と年数を入力してください
+                                    </p>
+                                    <div class="p-add-form__content">
+                                        <div class="p-add-form__box">
+                                            <div class="p-add-form__select c-wizard-select">
+                                                <span class="c-wizard-select__label">経験職種</span>
+                                                <ul class="c-wizard-select__select-list">
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="p-add-form__select c-wizard-select">
+                                                <span class="c-wizard-select__label">経験年数</span>
+                                                <ul class="c-wizard-select__select-list">
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="p-add-form__add">
+                                            <button class="p-button__add-btn" type="button">＋　経験職種を追加して入力する</button>
+                                        </div>
+                                        <div class="p-add-form__progress">
+                                            <p class="p-add-form__steps">残り<br
+                                                    class="u-display__sp-only"><span>3</span>ステップ
+                                            </p>
+                                            <button class="p-add-form__next" disabled>次の項目へ進む</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-add-form__section p-add-form__section--02">
+                                    <p class="p-add-form__title">
+                                        現在の就業状況を入力してください
+                                    </p>
+                                    <div class="p-add-form__content">
+                                        <div class="p-add-form__radio c-wizard-radio">
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="status" id="status_a" value="a" checked>
+                                                <label for="status_a"><span>在職中</span></label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="status" id="status_b" value="b">
+                                                <label for="status_b">直近<span>3ヶ月</span>で退職済み</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="status" id="status_c" value="c">
+                                                <label for="status_c">直近<span>6ヶ月</span>で退職済み</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="status" id="status_d" value="d">
+                                                <label for="status_d">直近<span>1年間</span>で退職済み</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="status" id="status_e" value="e">
+                                                <label for="status_e"><span>1年以上前</span>で退職済み</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-add-form__back">
+                                        <button class="p-add-form__back-btn" type="button"><span>戻る</span></button>
+                                    </div>
+                                </div>
+                                <div class="p-add-form__section p-add-form__section--03">
+                                    <p class="p-add-form__title">
+                                        転職希望時期を入力してください
+                                    </p>
+                                    <div class="p-add-form__content">
+                                        <div class="p-add-form__radio c-wizard-radio">
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="period" id="period_a" value="a" checked>
+                                                <label for="period_a">すぐにでも</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="period" id="period_b" value="b">
+                                                <label for="period_b">3ヶ月以内</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="period" id="period_c" value="c">
+                                                <label for="period_c">6ヶ月以内</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="period" id="period_d" value="d">
+                                                <label for="period_d">1年以内</label>
+                                            </div>
+                                            <div class="c-wizard-radio__item">
+                                                <input type="radio" name="period" id="period_e" value="e">
+                                                <label for="period_e">情報収集したい</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-add-form__back">
+                                        <button class="p-add-form__back-btn" type="button"><span>戻る</span></button>
+                                    </div>
+                                </div>
+                                <div class="p-add-form__section p-add-form__section--04">
+                                    <p class="p-add-form__title">
+                                        これまでの経験社数を入力してください
+                                    </p>
+                                    <div class="p-add-form__content">
+                                        <div class="p-add-form__box">
+                                            <div class="p-add-form__select c-wizard-select">
+                                                <ul class="c-wizard-select__select-list">
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="p-add-form__progress">
+                                            <p class="p-add-form__steps">残り<br
+                                                    class="u-display__sp-only"><span>2</span>ステップ
+                                            </p>
+                                            <button class="p-add-form__next">次の項目へ進む</button>
+                                        </div>
+                                    </div>
+                                    <div class="p-add-form__back">
+                                        <button class="p-add-form__back-btn" type="button"><span>戻る</span></button>
+                                    </div>
+                                </div>
+                                <div class="p-add-form__section p-add-form__section--05">
+                                    <p class="p-add-form__title">
+                                        ご希望の勤務地を入力してください
+                                    </p>
+                                    <div class="p-add-form__content">
+                                        <div class="p-add-form__box">
+                                            <div class="p-add-form__select c-wizard-select">
+                                                <span class="c-wizard-select__label">ご希望の勤務地を入力してください</span>
+                                                <ul class="c-wizard-select__select-list">
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="p-add-form__progress">
+                                            <p class="p-add-form__steps">残り<br
+                                                    class="u-display__sp-only"><span>1</span>ステップ
+                                            </p>
+                                            <button class="p-add-form__next">次の項目へ進む</button>
+                                        </div>
+                                    </div>
+                                    <div class="p-add-form__back">
+                                        <button class="p-add-form__back-btn" type="button"><span>戻る</span></button>
+                                    </div>
+                                </div>
+                                <div class="p-add-form__section p-add-form__section--06">
+                                    <p class="p-add-form__title">
+                                        現在の年収とご希望される年収をご記入ください
+                                    </p>
+                                    <div class="p-add-form__content">
+                                        <div class="p-add-form__box">
+                                            <div class="p-add-form__select c-wizard-select">
+                                                <span class="c-wizard-select__label">現在の年収を入力してください</span>
+                                                <ul class="c-wizard-select__select-list">
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="p-add-form__select c-wizard-select">
+                                                <span class="c-wizard-select__label">ご希望される年収を入力してください</span>
+                                                <ul class="c-wizard-select__select-list">
+                                                    <li class="c-wizard-select__select-item">
+                                                        <select class="c-wizard-select__select">
+                                                            <option value="placeholder" selected disabled
+                                                                style="display:none;">
+                                                                選択してください
+                                                            </option>
+                                                            <option value="選択肢A">選択肢A</option>
+                                                            <option value="選択肢B">選択肢B</option>
+                                                            <option value="選択肢C">選択肢C</option>
+                                                            <option value="選択肢D">選択肢D</option>
+                                                            <option value="選択肢E">選択肢E</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="p-add-form__confirm">
+                                            <p class="p-add-form__confirm-title"><span>あなたにマッチした求人を<br
+                                                        class="u-display__sp-only">厳選してご提案します</span></p>
+                                            <p class="p-add-form__confirm-text"><a
+                                                    href="https://bloomtech.co.jp/privacy/"
+                                                    target="_blank">プライバシーポリシー</a>に同意した上でお申し込みください</p>
+                                            <div class="p-add-form__confirm-btn">
+                                                <button class="c-button">同意して登録する</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-add-form__back">
+                                        <button class="p-add-form__back-btn" type="button"><span>戻る</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+                <%- include('../../include/_footer', {basePath}) %>
+    </body>
+
+</html>

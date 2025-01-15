@@ -1,0 +1,17 @@
+@use "../../Foundation/index" as *;
+
+.c-button {
+  background: linear-gradient(91.99deg, #3699fa 0.22%, #115da7 99.78%);
+  color: $color-white;
+  font-size: rem(16);
+  line-height: calc(20 / 16);
+  letter-spacing: 0.2em;
+  font-weight: $bold;
+  padding: rem(20);
+  min-width: rem(300);
+  width: 80%;
+  text-align: center;
+  @include mq() {
+    width: fit-content;
+  }
+}

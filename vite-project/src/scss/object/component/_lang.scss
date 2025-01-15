@@ -1,0 +1,31 @@
+@use "../../Foundation/index" as *;
+
+.c-lang {
+  display: flex;
+  color: $color-white;
+  gap: rem(15);
+}
+
+.c-lang__item {
+  font-size: rem(15);
+  position: relative;
+  font-family: $third-font-family;
+}
+
+.c-lang .c-lang__item:nth-of-type(1):after {
+  content: "/";
+  color: $color-white;
+  font-size: 83%;
+  right: -30%;
+  position: relative;
+  top: -0.1em;
+}
+
+.c-lang__item a {
+  padding: 0 0.2em;
+}
+
+.c-lang__item.is-active a {
+  background-color: #3699fa;
+  color: $color-white;
+}

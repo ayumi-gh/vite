@@ -1,0 +1,34 @@
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NLJPLFL8');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<% if (head.noindex) { %>
+    <!-- noidex -->
+    <meta name="robots" content="noindex">
+    <% } %>
+        <!-- meta情報 -->
+        <title><%- head.title %></title>
+        <meta name="description" content="<%- head.desc %>" />
+        <!-- ogp -->
+        <meta property="og:title" content="<%- head.title %>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://bloomtechcareer.com" />
+        <meta property="og:image" content="https://bloomtechcareer.com/assets/images/common/ogp.jpg" />
+        <meta property="og:site_name" content="BLOOM TECH Career｜IT/Webエンジニア専門の転職エージェント" />
+        <meta property="og:description" content="<%- head.desc %>" />
+        <!-- ファビコン -->
+        <link rel="icon" href="<%= basePath %>assets/images/favicons/favicon-256x256.png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="<%= basePath %>assets/images/favicons/favicon-192x192.png" />
+        <!-- css -->
+        <link rel="stylesheet" href="<%= basePath %>assets/css/style.css" />
+        <!-- JavaScript -->
+        <script defer src="<%= basePath %>assets/js/script.js"></script>

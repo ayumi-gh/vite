@@ -1,0 +1,223 @@
+@use "../../Foundation/index" as *;
+
+.p-worry {
+  overflow: hidden;
+}
+
+.p-worry__list {
+  background-image: url(../images/worry-bg-list-sp.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: rem(60) 0;
+  @include mq() {
+    padding: rem(93) 0 rem(127);
+    background-image: url(../images/worry-bg-list-pc.jpg);
+  }
+}
+
+.p-worry__list-intro {
+  color: $color-white;
+  text-align: center;
+}
+
+.p-worry__list-intro p {
+  word-break: keep-all;
+  margin-top: rem(6);
+  font-size: rem(24);
+  font-weight: $medium;
+  line-height: 1.6;
+  @include mq() {
+    font-size: rem(45);
+    letter-spacing: 0.05em;
+    margin-top: 0;
+  }
+}
+
+.p-worry__list-intro p span {
+  font-size: rem(32);
+  color: #e5ce83;
+  font-weight: $bold;
+  letter-spacing: 0.05em;
+  @include mq() {
+    font-size: rem(60);
+  }
+}
+
+.p-worry__list-items {
+  display: flex;
+  flex-direction: column;
+  gap: rem(13);
+  margin: rem(36) auto 0;
+  width: 98%;
+  @include mq() {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: rem(1000);
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.p-worry__list-item {
+  position: relative;
+  background: linear-gradient(275.95deg, #024380 37%, #00274b 90.22%);
+  transform: skew(-18deg);
+  display: grid;
+  @include mq() {
+    width: 48%;
+    background: linear-gradient(274.28deg, #00274b 7.21%, #005cb1 92.79%);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// .p-worry__list-item:nth-of-type(2n-1) {
+//   @include mq() {
+//     background: linear-gradient(274.28deg, #024380 7.21%, #00274b 92.79%);
+//   }
+// }
+
+// .p-worry__list-item:nth-of-type(5) {
+//   @include mq() {
+//     background: linear-gradient(121.6deg, #024380 30.94%, #00274b 74.32%);
+//   }
+// }
+
+.p-worry__list-item-text {
+  font-size: rem(18);
+  line-height: 140%;
+  font-weight: $bold;
+  text-align: center;
+  color: $color-white;
+  padding: rem(20) rem(10);
+  min-height: rem(90);
+  display: grid;
+  place-content: center;
+  transform: skew(18deg);
+  word-break: keep-all;
+  @include mq() {
+    font-size: rem(25);
+    padding: rem(13) rem(10);
+  }
+}
+
+.p-worry__solution {
+  padding: rem(50) 0;
+  background-image: url(../images/worry-bg-solution-01-sp.png);
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include mq() {
+    background-image: url(../images/worry-bg-solution-01-pc.png);
+    padding: rem(100) 0 rem(100);
+  }
+}
+
+.p-worry__solution-inner {
+  @include mq() {
+    max-width: rem(1370);
+    position: relative;
+  }
+}
+
+.p-worry__solution-title {
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+  font-size: rem(75);
+  letter-spacing: 0.05em;
+  font-family: $second-font-family;
+  color: #d9d9d9;
+  white-space: nowrap;
+  opacity: 0.4;
+  line-height: 1;
+  font-weight: $medium;
+  @include mq() {
+    font-size: rclamp(75, 140, 768, 1440);
+    margin: initial;
+    width: fit-content;
+    z-index: 1;
+    position: absolute;
+    transform: translateY(15px);
+    right: 1.5%;
+  }
+}
+
+.p-worry__solution-title .c-loop-text__wrapper {
+  animation: loop 30s infinite linear;
+  @include mq() {
+    animation: none;
+  }
+}
+
+.p-worry__solution-title .c-loop-text__wrapper span:not(:first-child) {
+  @include mq() {
+    display: none;
+  }
+}
+
+.p-worry__solution-content {
+  @include mq() {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9%;
+  }
+}
+
+.p-worry__solution-text {
+  @include mq() {
+    margin-top: 8%;
+    min-width: 370px;
+    flex-shrink: 0;
+  }
+}
+
+.p-worry__solution__intro {
+  font-size: rem(18);
+  letter-spacing: 0.05em;
+  font-weight: $bold;
+  color: $color-main;
+  @include mq() {
+    font-size: rem(37);
+  }
+}
+
+.p-worry__solution__description {
+  margin-top: rem(13);
+  font-size: rem(23);
+  line-height: 180%;
+  font-weight: $bold;
+  color: $color-main;
+  @include mq() {
+    font-size: rem(35);
+    margin-top: rem(40);
+    line-height: 155%;
+  }
+}
+
+.p-worry__solution__highlight {
+  text-decoration-color: $color-accent-01;
+  border-bottom: rem(3) solid $color-accent-01;
+  display: inline-block;
+  padding-bottom: rem(0);
+  line-height: 1;
+  @include mq() {
+    border-bottom: rem(4) solid $color-accent-01;
+  }
+}
+
+.p-worry__solution__description .u-color__gold {
+  @include mq() {
+    font-size: rem(42);
+    line-height: 180%;
+  }
+}
+
+.p-worry__solution__image {
+  margin-top: rem(30);
+  @include mq() {
+    margin-top: 0;
+    max-width: rem(540);
+  }
+}

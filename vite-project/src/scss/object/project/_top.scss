@@ -1,0 +1,13 @@
+@use "../../Foundation/index" as *;
+
+.p-top .l-header {
+  background-color: transparent;
+}
+
+.p-top-cta {
+  background-color: $color-main;
+  padding: rem(40) 0;
+  @include mq() {
+    padding: rem(60) 0;
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../Foundation/index" as *;
+
+.c-checkbox label {
+  position: relative;
+  display: flex;
+  gap: rem(10);
+  font-size: rem(14);
+  line-height: calc(20 / 14);
+}
+
+.c-checkbox input {
+  background-color: $color-white;
+  width: 1em;
+  height: 1em;
+  font-weight: $medium;
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+  @include mq() {
+    margin: 0;
+    top: 0.2em;
+  }
+}
+
+.c-checkbox input:after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  transition: 0.3s;
+  transform: rotate(45deg);
+  border-bottom: solid rem(2) $color-white;
+  border-right: solid rem(2) $color-white;
+  width: rem(5);
+  height: rem(10);
+  left: 30%;
+  opacity: 0;
+}
+
+.c-checkbox input[type="checkbox"]:checked {
+  background-color: #3699fa;
+}
+
+.c-checkbox input[type="checkbox"]:checked:after {
+  opacity: 1;
+}

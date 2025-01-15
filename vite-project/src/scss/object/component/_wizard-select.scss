@@ -1,0 +1,64 @@
+@use "../../Foundation/index" as *;
+
+.c-wizard-select {
+}
+
+.c-wizard-select + .c-wizard-select {
+  margin-top: rem(30);
+}
+
+.c-wizard-select__label {
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 140%;
+  letter-spacing: 0.05em;
+  color: $color-main;
+  @include mq() {
+    font-size: rem(20);
+  }
+}
+
+.c-wizard-select__select-list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  margin-top: rem(6);
+  @include mq() {
+    margin-top: rem(16);
+  }
+}
+
+.c-wizard-select__select-item {
+  position: relative;
+}
+
+.c-wizard-select__select-item:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: rem(10);
+  height: rem(10);
+  border-right: rem(2) solid #3699fa;
+  border-bottom: rem(2) solid #3699fa;
+  right: rem(18);
+  top: 50%;
+  transform: translateY(-77%) rotate(45deg);
+  pointer-events: none;
+  @include mq() {
+    right: rem(30);
+  }
+}
+
+.c-wizard-select__select {
+  border: rem(1.5) solid #3699fa;
+  border-radius: rem(10);
+  padding: rem(19) rem(20);
+  width: 100%;
+  color: #3699fa;
+  font-size: rem(16);
+  line-height: calc(20 / 16);
+  font-weight: $bold;
+  @include mq() {
+    padding: rem(19) rem(30);
+  }
+}

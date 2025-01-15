@@ -1,0 +1,53 @@
+@use "../../Foundation/index" as *;
+
+.p-summary {
+  padding: rem(80) 0;
+  background-image: url(../images/sumarry-bg-01-sp.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include mq() {
+    padding: rem(120) 0;
+    background-image: url(../images/sumarry-bg-01-pc.jpg);
+  }
+}
+
+.p-summary__title {
+  font-size: rem(24);
+  font-weight: $bold;
+  letter-spacing: 0.05em;
+  color: $color-white;
+  width: fit-content;
+  margin: 0 auto;
+  @include mq() {
+    font-size: rem(45);
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+}
+
+.p-summary__description {
+  font-size: rem(16);
+  line-height: 180%;
+  font-weight: $bold;
+  color: $color-white;
+  margin-top: rem(15);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  @include mq() {
+    font-size: rem(20);
+    margin: rem(32) auto 0;
+    text-align: center;
+    line-height: 200%;
+    letter-spacing: 0.05em;
+    gap: 0;
+  }
+}
+
+.p-summary__cta {
+  margin-top: rem(32);
+  @include mq() {
+    margin-top: rem(55);
+  }
+}

@@ -1,0 +1,57 @@
+@use "../../Foundation/index" as *;
+
+.c-info-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0;
+}
+
+.c-info-card__image {
+}
+
+.c-info-card__content {
+}
+
+.c-info-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: rem(7);
+}
+
+.c-info-card__category {
+  font-size: rem(14);
+  letter-spacing: 0.05em;
+  font-weight: $bold;
+  color: #3699fa;
+  @include mq() {
+    font-size: rem(20);
+  }
+}
+
+.c-info-card__date {
+  font-size: rem(14);
+  letter-spacing: 0.05em;
+  font-weight: $regular;
+  font-family: $second-font-family;
+  color: $color-main;
+  padding-right: 0.5em;
+  top: -0.2em;
+  position: relative;
+  @include mq() {
+    font-size: rem(22);
+    top: initial;
+  }
+}
+
+.c-info-card__title {
+  font-size: rem(18);
+  letter-spacing: 0.05em;
+  font-weight: $bold;
+  color: $color-main;
+  margin-top: rem(9);
+  @include mq() {
+    font-size: rem(24);
+  }
+}

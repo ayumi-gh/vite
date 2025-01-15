@@ -1,0 +1,47 @@
+@use "../../Foundation/index" as *;
+
+.p-info {
+  padding: rem(60) 0 rem(80);
+  background-color: #e9f4f9;
+  @include mq() {
+    padding: rem(120) 0;
+  }
+}
+
+.p-info__title {
+  font-size: rem(24);
+  font-weight: $bold;
+  letter-spacing: 0.05em;
+  color: $color-main;
+  text-align: center;
+  @include mq() {
+    font-size: rem(45);
+  }
+}
+
+.p-info__description {
+  margin-top: rem(13);
+  font-size: rem(16);
+  line-height: 180%;
+  font-weight: $medium;
+  @include mq() {
+    font-size: rem(20);
+    width: fit-content;
+    margin: rem(30) auto 0;
+  }
+}
+
+.p-info__list {
+  margin-top: rem(40);
+}
+
+.p-info__item {
+}
+
+.p-info__more {
+  text-align: center;
+  margin-top: rem(24);
+  @include mq() {
+    margin-top: rem(44);
+  }
+}

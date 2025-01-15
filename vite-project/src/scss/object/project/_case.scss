@@ -1,0 +1,72 @@
+@use "../../Foundation/index" as *;
+
+.p-case {
+  background: linear-gradient(274.28deg, #00274b 7.21%, #005cb1 92.79%);
+  padding: rem(80) 0;
+  position: relative;
+  @include mq() {
+    padding: rem(120) 0;
+    background-image: url(../images/case-bg-01-pc.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.p-case::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    97deg,
+    rgba(233, 244, 249, 0.4) 0%,
+    rgba(233, 244, 249, 0.4) 52%,
+    transparent 52%,
+    transparent 100%
+  );
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  @include mq() {
+    // background: linear-gradient(
+    //   110deg,
+    //   transparent 0%,
+    //   transparent 30%,
+    //   rgba(233, 244, 249, 0.4) 30%,
+    //   rgba(233, 244, 249, 0.4) 70%,
+    //   transparent 70%,
+    //   transparent 100%
+    // );
+    display: none;
+  }
+}
+
+.p-case__inner {
+  padding-left: rem(12);
+  padding-right: rem(12);
+  @include mq() {
+    padding-left: rem(25);
+    padding-right: rem(25);
+  }
+}
+
+.p-case__title {
+  text-align: center;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $color-white;
+  letter-spacing: 0.05em;
+  @include mq() {
+    font-size: rem(45);
+  }
+}
+
+.p-case__list {
+  margin-top: rem(32);
+  @include mq() {
+    margin-top: rem(40);
+  }
+}

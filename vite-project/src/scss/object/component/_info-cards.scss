@@ -1,0 +1,11 @@
+@use "../../Foundation/index" as *;
+
+.c-info-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: rem(24);
+  @include mq() {
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(30);
+  }
+}

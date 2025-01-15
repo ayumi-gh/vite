@@ -1,0 +1,76 @@
+/* リキッドレイアウト対応 */
+@use "../Foundation/setting" as *;
+@use "../Foundation/breakpoints" as *;
+@use "../Foundation/function" as *;
+
+/*********************************
+	BASE SET
+*********************************/
+
+@if $startFrom == sp {
+  //スマホファースト
+  html {
+    //~375px
+    @media (max-width: 375px) {
+      font-size: vw(375, 16);
+    }
+
+    //375px~767px
+    font-size: 16px;
+
+    @include mq("md") {
+      font-size: vw(strip-unit($inner), 16);
+    }
+
+    //inner~max-screen
+    @media (min-width: $inner) {
+      font-size: 16px;
+    }
+  }
+} @else {
+  //PCファースト
+  html {
+    font-size: 16px;
+
+    @media (max-width: $inner) {
+      font-size: vw(strip-unit($inner), 16);
+    }
+
+    @include mq("md") {
+      font-size: 16px;
+    }
+
+    //~375px
+    @media (max-width: 375px) {
+      font-size: vw(375, 16);
+    }
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $base-font-family;
+  color: $color-black;
+  font-size: rem(16);
+}
+
+body.open {
+  overflow: hidden; /* スクロールを無効にする */
+}
+
+main {
+  overflow: hidden;
+}
+
+a {
+  display: inline-block;
+}
+
+@media (hover: hover) {
+  a:hover {
+    opacity: 0.7;
+  }
+}

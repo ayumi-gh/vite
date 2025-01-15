@@ -1,0 +1,142 @@
+@use "../../Foundation/index" as *;
+
+.p-faq {
+  padding: rem(60) 0 rem(80);
+  background-color: #e9f4f9;
+  position: relative;
+  @include mq() {
+    padding: rem(120) 0 rem(140);
+    background: linear-gradient(
+      113deg,
+      #f6fbff 0%,
+      #f6fbff 56%,
+      #e9f4f9 56%,
+      #e9f4f9 100%
+    );
+  }
+}
+
+.p-faq__inner {
+  padding-left: 10px;
+  padding-right: 10px;
+  @include mq() {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.p-faq__title {
+  font-size: rem(28);
+  font-weight: $bold;
+  letter-spacing: 0.05em;
+  color: $color-main;
+  text-align: center;
+  @include mq() {
+    font-size: rem(45);
+  }
+}
+
+.p-faq__intro {
+  margin-top: rem(17);
+  font-size: rem(16);
+  line-height: 180%;
+  letter-spacing: 0.05em;
+  padding: 0 rem(10);
+  @include mq() {
+    font-size: rem(20);
+    margin-top: rem(30);
+    text-align: center;
+    letter-spacing: 0;
+  }
+}
+
+.p-faq__list {
+  margin-top: rem(30);
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+  @include mq() {
+    margin-top: rem(40);
+    gap: rem(40);
+  }
+}
+
+.p-faq__item {
+  background-color: $color-white;
+  padding: rem(32) rem(20);
+  border-radius: rem(6);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  @include mq() {
+    padding: rem(47) rem(100);
+  }
+}
+
+.p-faq__question {
+  display: flex;
+  gap: rem(9);
+  align-items: flex-start;
+  @include mq() {
+    gap: rem(31);
+  }
+}
+
+.p-faq__question-mark {
+  font-family: $second-font-family;
+  font-size: rem(35);
+  letter-spacing: 0.05em;
+  font-weight: $semibold;
+  font-style: italic;
+  line-height: 1;
+  @include mq() {
+    font-size: rem(40);
+    position: relative;
+    top: -0.2em;
+  }
+}
+
+.p-faq__question-text {
+  font-size: rem(18);
+  letter-spacing: 0.05em;
+  font-weight: $bold;
+  @include mq() {
+    font-size: rem(26);
+  }
+}
+
+.p-faq__answer {
+  border-top: rem(1) solid $color-main;
+  padding-top: rem(20);
+  margin-top: rem(20);
+  display: flex;
+  gap: rem(9);
+  align-items: flex-start;
+  @include mq() {
+    margin-top: rem(10);
+    gap: rem(35);
+  }
+}
+
+.p-faq__answer-mark {
+  font-family: $second-font-family;
+  font-size: rem(35);
+  letter-spacing: 0.05em;
+  font-weight: $semibold;
+  font-style: italic;
+  line-height: 1;
+  color: #f8b500;
+}
+
+.p-faq__answer-text {
+  font-size: rem(14);
+  letter-spacing: 0.05em;
+  font-weight: $medium;
+  line-height: 180%;
+  @include mq() {
+    font-size: rem(20);
+  }
+}
+
+.p-faq__answer-list {
+  padding-left: 0.9em;
+  text-indent: -1.1em;
+}

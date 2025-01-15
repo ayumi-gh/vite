@@ -1,0 +1,22 @@
+@use "../../Foundation/index" as *;
+
+.c-loop-text {
+  overflow: hidden;
+}
+
+.c-loop-text__wrapper {
+  animation: loop 100s infinite linear;
+  width: max-content;
+  display: flex;
+  gap: 0.5em;
+}
+
+.c-loop-text__wrapper span {
+  word-break: keep-all;
+}
+
+@keyframes loop {
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,10 @@
+@use "../../Foundation/index" as *;
+
+.c-adviser-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: rem(40);
+  @include mq() {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

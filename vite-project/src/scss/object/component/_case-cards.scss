@@ -1,0 +1,10 @@
+@use "../../Foundation/index" as *;
+
+.c-case-cards {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+  @include mq() {
+    gap: rem(50);
+  }
+}

@@ -1,0 +1,10 @@
+@use "../../Foundation/index" as *;
+
+.c-merit-cards {
+  display: flex;
+  flex-direction: column;
+  gap: rem(60);
+  @include mq() {
+    gap: rem(80);
+  }
+}

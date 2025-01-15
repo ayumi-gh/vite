@@ -1,0 +1,71 @@
+@use "../../Foundation/index" as *;
+
+.c-merit-card {
+  display: flex;
+  flex-direction: column;
+  @include mq() {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.c-merit-card:nth-child(2n) {
+  @include mq() {
+    flex-direction: row-reverse;
+  }
+}
+
+.c-merit-card__image {
+  @include mq() {
+    max-width: rem(440);
+    width: 44%;
+  }
+}
+
+.c-merit-card__content {
+  @include mq() {
+    width: 48%;
+  }
+}
+
+.c-merit-card__num {
+  color: #3699fa;
+  font-size: rem(30);
+  letter-spacing: 0.05em;
+  font-family: $second-font-family;
+  font-style: italic;
+  line-height: 1.2;
+  @include mq() {
+    line-height: 0.9;
+  }
+}
+
+.c-merit-card__num span {
+  font-size: rem(50);
+  margin-left: 0.1em;
+}
+
+.c-merit-card__title {
+  font-size: rem(21);
+  font-weight: $semibold;
+  letter-spacing: 0.05em;
+  color: $color-white;
+  word-break: keep-all;
+  @include mq() {
+    font-size: rem(32);
+    margin-top: rem(7);
+  }
+}
+
+.c-merit-card__description {
+  font-size: rem(14);
+  line-height: 180%;
+  font-weight: $medium;
+  color: $color-white;
+  margin-top: rem(10);
+  @include mq() {
+    font-size: rem(18);
+    margin-top: rem(30);
+    width: 90%;
+  }
+}

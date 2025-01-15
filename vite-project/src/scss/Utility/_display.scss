@@ -1,0 +1,38 @@
+@use "../Foundation/index" as *;
+
+.u-display__none {
+  display: none;
+}
+
+@if $startFrom == sp {
+  //pcで表示
+  .u-display__pc-only {
+    display: none;
+    @include mq("md") {
+      display: block;
+    }
+  }
+
+  //モバイルのみ表示
+  .u-display__sp-only {
+    @include mq("md") {
+      display: none;
+    }
+  }
+} @else {
+  //pcで表示
+  .u-display__pc-only {
+    display: block;
+    @include mq("md") {
+      display: none;
+    }
+  }
+
+  //モバイルのみ表示
+  .u-display__sp-only {
+    display: none;
+    @include mq("md") {
+      display: block;
+    }
+  }
+}
