@@ -1,12 +1,14 @@
+import autoprefixer from 'autoprefixer';
 import { defineConfig } from 'vite';
 import { ViteEjsPlugin } from "vite-plugin-ejs";
-import autoprefixer from 'autoprefixer';
+import ejs from 'ejs';
 import postcssPresetEnv from 'postcss-preset-env';
 import cssnano from 'cssnano';
 import viteImagemin from 'vite-plugin-imagemin';
 import { globSync } from 'glob';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs-extra';
 
 const jsFiles = Object.fromEntries(
   globSync('src/**/*.js', { ignore: ['node_modules/**','**/modules/**','**/dist/**']}).map(file => [
@@ -39,7 +41,9 @@ const scssFiles = Object.fromEntries(
 );
 
 const ejsFiles = Object.fromEntries(
-  globSync('src/ejs/**/*.ejs', { ignore: ['node_modules/**', '**/dist/**',] }).map(file => [
+  globSync('src/ejs/**/*.ejs', { ignore: ['node_modules/**', '**/dist/**',] })
+    .filter(file => !path.basename(file).startsWith('_')) // アンダーバーが先頭のファイルを除外
+    .map(file => [
     path.relative(
       'src/ejs',
       file.slice(0, file.length - path.extname(file).length)
@@ -48,19 +52,51 @@ const ejsFiles = Object.fromEntries(
   ])
 );
 
+// 出力ディレクトリ
+const outputDir = path.resolve('dist');
 
-const htmlFiles = Object.fromEntries(
-  globSync('src/**/*.html', { ignore: ['node_modules/**', '**/dist/**'] }).map(file => [
-    path.relative(
-      'src',
-      file.slice(0, file.length - path.extname(file).length)
-    ),
-    fileURLToPath(new URL(file, import.meta.url))
-  ])
-);
+// HTMLコンパイルと書き出し
+(async () => {
+  try {
+    for (const [relativePath, filePath] of Object.entries(ejsFiles)) {
+      // EJSファイルを読み込む
+      const template = await fs.readFile(filePath, 'utf-8');
+
+      // EJSテンプレートをHTMLにコンパイル
+      const html = ejs.render(template, {
+        // EJS内で使う変数をここに設定
+        basePath: '',
+        head: {
+          noindex: false,
+          title: 'test',
+          desc: 'test desc',
+        },
+      }, {
+        // includeのベースディレクトリを指定
+        root: path.resolve('src/ejs'),
+        filename: filePath, // 現在のテンプレートのパスを渡す
+      });
+
+      // 出力先のファイルパスを決定
+      const outputPath = path.join(outputDir, `${relativePath}.html`);
+
+      // 出力先ディレクトリを作成
+      await fs.ensureDir(path.dirname(outputPath));
+
+      // HTMLファイルを書き込む
+      await fs.writeFile(outputPath, html, 'utf-8');
+
+      console.log(`Generated: ${outputPath}`);
+    }
+
+    console.log('All files have been compiled and saved to the dist directory.');
+  } catch (error) {
+    console.error('Error during compilation:', error);
+  }
+})();
 
 
-const inputObject = { ...scssFiles, ...jsFiles, ...htmlFiles, ...fontFiles, ...ejsFiles };
+const inputObject = { ...scssFiles, ...jsFiles, ...fontFiles, ...ejsFiles };
 
 const fontFileNames = (assetInfo) => {
   if (/\.woff2?$/.test(assetInfo.name)) {
