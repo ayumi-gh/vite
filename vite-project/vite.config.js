@@ -18,6 +18,16 @@ const jsFiles = Object.fromEntries(
   ])
 );
 
+const fontFiles = Object.fromEntries(
+  globSync('src/fonts/**/*.ttf', { ignore: ['node_modules/**','**/modules/**','**/dist/**']}).map(file => [
+    path.relative(
+      'src',
+      file.slice(0, file.length - path.extname(file).length)
+    ),
+    fileURLToPath(new URL(file, import.meta.url))
+  ])
+);
+
 const scssFiles = Object.fromEntries(
   globSync('src/scss/**/*.scss', { ignore: ['src/scss/**/_*.scss'] }).map(file => [
     path.relative(
@@ -27,6 +37,17 @@ const scssFiles = Object.fromEntries(
     fileURLToPath(new URL(file, import.meta.url))
   ])
 );
+
+const ejsFiles = Object.fromEntries(
+  globSync('src/ejs/**/*.ejs', { ignore: ['node_modules/**', '**/dist/**'] }).map(file => [
+    path.relative(
+      'src/ejs',
+      file.slice(0, file.length - path.extname(file).length)
+    ),
+    fileURLToPath(new URL(file, import.meta.url))
+  ])
+);
+
 
 const htmlFiles = Object.fromEntries(
   globSync('src/**/*.html', { ignore: ['node_modules/**', '**/dist/**'] }).map(file => [
@@ -38,17 +59,8 @@ const htmlFiles = Object.fromEntries(
   ])
 );
 
-const fontFiles = Object.fromEntries(
-  globSync('src/fonts/**/*.ttf').map(file => [
-    path.relative(
-      'src',
-      file.slice(0, file.length - path.extname(file).length)
-    ),
-    fileURLToPath(new URL(file, import.meta.url))
-  ])
-);
 
-const inputObject = { ...scssFiles, ...jsFiles, ...htmlFiles, ...fontFiles };
+const inputObject = { ...scssFiles, ...jsFiles, ...htmlFiles, ...fontFiles, ...ejsFiles };
 
 const fontFileNames = (assetInfo) => {
   if (/\.woff2?$/.test(assetInfo.name)) {
@@ -71,7 +83,10 @@ export default defineConfig({
             return 'assets/images/[name].[ext]';
           }
           if (/\.css$/.test(assetInfo.name)) {
-            return 'assets/css/[name].[ext]';
+            return 'assets/css/style.css';
+          }
+          if (/\.ttf?$/.test(assetInfo.name)) {
+            return 'assets/fonts/[name].[ext]';
           }
           return 'assets/[name].[ext]';
         },
@@ -82,7 +97,8 @@ export default defineConfig({
     minify: false,
   },
   plugins: [
-    ViteEjsPlugin ({ 
+    ViteEjsPlugin({
+      basePath: '',
       head: {
         title: '',
         desc: '',
@@ -101,6 +117,7 @@ export default defineConfig({
       },
     }),
   ],
+  assetsInclude: ['**/*.ejs'],
   css: {
     preprocessorOptions: {
       scss: {
@@ -123,3 +140,5 @@ export default defineConfig({
     port: 3000
   }
 });
+
+
