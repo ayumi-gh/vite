@@ -39,7 +39,7 @@ const scssFiles = Object.fromEntries(
 );
 
 const ejsFiles = Object.fromEntries(
-  globSync('src/ejs/**/*.ejs', { ignore: ['node_modules/**', '**/dist/**'] }).map(file => [
+  globSync('src/ejs/**/*.ejs', { ignore: ['node_modules/**', '**/dist/**',] }).map(file => [
     path.relative(
       'src/ejs',
       file.slice(0, file.length - path.extname(file).length)
@@ -128,11 +128,11 @@ export default defineConfig({
       plugins: [
         postcssPresetEnv(),
         autoprefixer(),
-        cssnano({
-          preset: ['default', {
-            discardComments: { removeAll: false } // コメントを保持
-          }],
-        }),
+        // cssnano({
+        //   preset: ['default', {
+        //     discardComments: { removeAll: false } // コメントを保持
+        //   }],
+        // }),
       ],
     },
   },
